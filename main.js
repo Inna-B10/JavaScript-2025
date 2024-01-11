@@ -27,9 +27,109 @@ String, number, boolean, array
 You can choose what the actual content is.
 Try to use both the let and const keywords
 ******************************************************************************/
+/* --------------------------------- number --------------------------------- */
+const pi = 3.14;
+let formVieta = 2 / pi;
 
-//your code here
+//NaN - invalid, but still number
+let num1 = 10 / "Blue";
+//console.log(isNaN(num1) + ", " + typeof num1); //true, number
 
+/* --------------------------------- boolean -------------------------------- */
+let guestAge = 25;
+let isAdult = guestAge > 18;
+
+let isChild = true;
+
+/* --------------------------------- string --------------------------------- */
+const color = "Blue";
+let text = "We are the so-called 'Vikings' from the north.";
+let text2 = 'We are the so-called "Vikings" from the north.';
+//let text3 = "We are the so-called \'Vikings\' from the north.";
+//console.log(`${text2}`);          \\uses $ and ``
+
+/* -------------------------------- undefined ------------------------------- */
+let y;
+let book = undefined; // Value is undefined, type is undefined
+
+//empty value ≠ undefined !!!
+let book2 = ""; // The value is "" (empty), but the typeof is "string"
+//console.log(typeof book, typeof book2);
+
+/* ---------------------------------- null ---------------------------------- */
+let person = { firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue" };
+person = null; // Now value is null, but type is still an object
+
+//undefined and null are equal in value but different in type:
+let person2 = { firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue" };
+person2 = undefined; // Now both value and type is undefined
+
+typeof undefined; // undefined
+typeof null; // object
+
+null === undefined; // false
+null == undefined; // true
+
+/* --------------------------------- object --------------------------------- */
+
+//array [] aka "indexed list"
+
+const oldCars = ["Oldsmobile", "Pontiac", "Saturn"];
+oldCars[0] = "Ford Mercury"; //it changes the value of the first element in oldCars
+
+const newCars = [];
+newCars[0] = "Opel";
+newCars[1] = "Volvo";
+newCars[2] = "BMW";
+let car = newCars[0]; //to access an array element by referring to the index number
+
+//console.log(oldCars);                 //[ 'Ford Mercury', 'Pontiac', 'Saturn' ]
+//console.log(oldCars.toString());      //Ford Mercury,Pontiac,Saturn  ---- convert to string
+
+/* -------------------------------------------------------------------------- */
+//object {} ( array with "key" => "value")
+
+const personal = { firstName: "John", lastName: "Doe", age: 46 };
+//console.log(personal.age); //to access an array element by referring to the name ("key")
+
+const relatives = {
+  lastName: "Nordman",
+  mamaName: "Maria",
+  papaName: "Ole",
+  childName: "Nora",
+};
+let family =
+  relatives["papaName"] + //square brackets and quotes
+  " + " +
+  relatives["mamaName"] +
+  " = " +
+  relatives.childName + //dot
+  " " +
+  relatives.lastName;
+// console.log(family);
+
+const studentA = { fname: "Ole", lname: "Nordman", age: 24 };
+const studentB = { fname: "Anna", lname: "Anderssen", age: 27 };
+const listOfStudents = [studentA, studentB];
+//console.log(listOfStudents[0].age);
+
+const listOfArray = [
+  [1, 3, 5, 7, 9],
+  [2, 4, 6, 8, 10],
+  [10, 20, 30, 40, 50],
+];
+//console.log(listOfArray[1][2]);
+
+const worker = {
+  name: "Jack",
+  hobbies: ["coding", "fishing", "football"],
+};
+//console.log(worker.hobbies[0]);
+
+/* -------------------------------------------------------------------------- */
+//How to Recognize an Array (is list, not object)
+//console.log(Array.isArray(newCars));
+//console.log(relatives instanceof Array);
 /****************************************************************************** 
 ASSIGNMENT 3
 
