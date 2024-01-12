@@ -188,10 +188,10 @@ can handle all cases correctly
 let userName = "";
 let userAge = 15;
 let userIsLoggedIn = false;
-let userIsBlocked = false;
+let userIsBlocked = true;
 let goToPage = "";
 
-if (userName && userAge >= 18 && userIsBlocked === false) {
+if (userName !== "" && userAge >= 18 && !userIsBlocked) {
   goToPage = "/home";
   userIsLoggedIn = true;
   console.log("Welcome, " + userName + "!");
@@ -207,7 +207,6 @@ if (userName && userAge >= 18 && userIsBlocked === false) {
   }
 }
 
-// console.log(goToPage);
 /******************************************************************************
 ASSIGNMENT 5
 
@@ -221,6 +220,7 @@ Try changing userMale to both true and false and console.log your new variable,
 to see that your conditional is working.
 ******************************************************************************/
 
-const userMale = false;
+const userMale = true;
 
-//your code here
+const userTitle = userMale ? "Mr." : "Mrs.";
+//console.log(userTitle);
