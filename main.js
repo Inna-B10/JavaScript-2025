@@ -49,7 +49,7 @@ let text2 = 'We are the so-called "Vikings" from the north.';
 //console.log(`${text2}`);          \\uses $ and ``
 
 /* -------------------------------- undefined ------------------------------- */
-let y;
+let b;
 let book = undefined; // Value is undefined, type is undefined
 
 //empty value ≠ undefined !!!
@@ -137,7 +137,35 @@ Try out a few of the operators we looked at (+, -, /, *)
 as well as a few of the shorthand operators (++, --, +=, -=)
 ******************************************************************************/
 
-//your code here
+//addition
+let sum = 100 + 50; // Numerical addition
+const someText = "Hello" + " " + "word!"; // String concatonation
+
+const sub = 76 - 50; // subtraction
+const div = 20 / 4; // division
+const mul = 7 * 14; // multiplication
+
+let a = 10;
+a = a + 10;
+a += 5;
+a++; //incrementing
+
+let k = 13;
+k = k - 10;
+k -= 5;
+k--; //decrementing
+
+let c = 100 + 50 * 3;
+let d = (100 + 50) * 3;
+/* ----------------------------- Bonus Operators ---------------------------- */
+// Remainder
+const rest = 5 % 2; // (остаток) of 5/2
+//console.log(rest);
+
+// Exponentiation
+let x = 5;
+let z = x ** 4; //5*5*5*5  ==   z = Math.pow(x,4);
+//console.log(z);
 
 /****************************************************************************** 
 ASSIGNMENT 4
