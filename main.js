@@ -186,13 +186,28 @@ can handle all cases correctly
 ******************************************************************************/
 
 let userName = "";
-let userAge = 18;
+let userAge = 15;
 let userIsLoggedIn = false;
 let userIsBlocked = false;
 let goToPage = "";
 
-//your code here
+if (userName && userAge >= 18 && userIsBlocked === false) {
+  goToPage = "/home";
+  userIsLoggedIn = true;
+  console.log("Welcome, " + userName + "!");
+} else {
+  if (userIsBlocked) {
+    console.log("You are not allowed in here 😠");
+  } else if (userAge < 18) {
+    console.log("Sorry, you are not of legal age 😔");
+  } else if (userName === "") {
+    console.log("Please, fill in your name.");
+  } else {
+    console.log("Sorry, some errors occurred. Please try logging in later.");
+  }
+}
 
+// console.log(goToPage);
 /******************************************************************************
 ASSIGNMENT 5
 
