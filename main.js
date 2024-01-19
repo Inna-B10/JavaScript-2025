@@ -16,8 +16,8 @@ Read the terminal output before and after to see the difference
 
 export function start() {
   //your code here
-   return true
-};
+  return true;
+}
 
 /******************************************************************************
 1.
@@ -30,11 +30,36 @@ received is an even number.
 
 HINT: Use the modulo operator (%) Google it! 😊
 ******************************************************************************/
-
-export const oddOrEven = () => {
-  //your code here
+/* ------------------------------ Alternative1 ------------------------------ */
+export const oddOrEven = (num) => {
+  if (Math.abs(num % 2) > 0) {
+    return "Odd";
+  } else {
+    return "Even";
+  }
 };
+console.log(oddOrEven(-3));
 
+/* ------------------------------ Alternative2 ------------------------------ */
+// export const oddOrEven2 = (num) => (Math.abs(num % 2) > 0 ? "Odd" : "Even");
+// console.log(oddOrEven2(3));
+
+//? start                          This does NOT work. WHY?
+/* ----------------------------------- №1 ----------------------------------- */
+// const oddOrEven3 = (num) => {
+//   if (Math.abs(num % 2) > 0) {
+//     console.log("Odd");
+//   } else {
+//     console.log("Even");
+//   }
+// };
+// oddOrEven3(-5);
+
+/* ----------------------------------- №2 ----------------------------------- */
+// const oddOrEven4 = (num) =>
+//   Math.abs(num % 2) > 0 ? console.log("Odd") : console.log("Even");
+// oddOrEven4(10);
+//? end
 /******************************************************************************
 2.
 
