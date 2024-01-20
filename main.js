@@ -100,9 +100,30 @@ The function should return:
 
 ******************************************************************************/
 
-export const greeter = () => {
-  //your code here
+export const greeter = (str, num) => {
+  if (num < 0 || num > 23 || typeof num !== "number") {
+    return "Invalid time";
+  } else {
+    const name =
+      str.trim().length === 0
+        ? ""
+        : ", " + str.charAt(0).toUpperCase() + str.slice(1);
+    if (num >= 0 && num <= 5) {
+      return `Good night${name}!`;
+    }
+    if (num >= 6 && num <= 11) {
+      return `Good morning${name}!`;
+    }
+    if (num >= 12 && num <= 17) {
+      return `Good day${name}!`;
+    }
+    if (num >= 18 && num <= 23) {
+      return `Good evening${name}!`;
+    }
+  }
 };
+
+console.log(greeter("", -5));
 
 /******************************************************************************
 4.
