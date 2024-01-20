@@ -72,9 +72,12 @@ Example: "This is cool" should return "THIS IS COOL!"
 
 ******************************************************************************/
 
-export function makeMeLoud() {
-  //your code here
+export function makeMeLoud(message) {
+  let someText = message.toUpperCase();
+  return `${someText}!`;
 }
+const UpperCaseMessage = makeMeLoud("hello word");
+console.log(UpperCaseMessage);
 
 /******************************************************************************
 3.
