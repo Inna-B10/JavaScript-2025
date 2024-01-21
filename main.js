@@ -171,9 +171,13 @@ Example3: "   hard        " should return "fun"
 
 ******************************************************************************/
 
-export const cleanAndFun = () => {
-  //your code here
+export const cleanAndFun = (str) => {
+  let newString = str.trim();
+  newString = newString.replace("hard", "fun");
+  return newString;
 };
+const pattern = " It's hard to use methods ";
+console.log(cleanAndFun(pattern));
 
 /******************************************************************************
 6.
