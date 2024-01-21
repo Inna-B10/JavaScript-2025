@@ -105,25 +105,23 @@ export const greeter = (str, num) => {
     return "Invalid time";
   } else {
     const name =
-      str.trim().length === 0
-        ? ""
-        : ", " + str.charAt(0).toUpperCase() + str.slice(1);
+      str.trim().length === 0 ? "" : str.charAt(0).toUpperCase() + str.slice(1);
     if (num >= 0 && num <= 5) {
-      return `Good night${name}!`;
+      return `Good night ${name}`;
     }
     if (num >= 6 && num <= 11) {
-      return `Good morning${name}!`;
+      return `Good morning ${name}`;
     }
     if (num >= 12 && num <= 17) {
-      return `Good day${name}!`;
+      return `Good day ${name}`;
     }
     if (num >= 18 && num <= 23) {
-      return `Good evening${name}!`;
+      return `Good evening ${name}`;
     }
   }
 };
 
-console.log(greeter("", -5));
+console.log(greeter("lars", -5));
 
 /******************************************************************************
 4.
@@ -138,10 +136,21 @@ Example 1: ["Red", "Green", "Blue", "Yellow"] should return ["Green", "Blue"]
 Example 2: ["One", "Two", "Three", "Four", "Five", "Six"] should return
 ["Two", "Three", "Four", "Five"]
 ******************************************************************************/
-
-export function arrayTrimmer() {
-  //your code here
+/* ------------------------------ Alternative 1 ----------------------------- */
+// export function arrayTrimmer(array) {
+//   let newArray = array.slice(1, -1);
+//   return newArray;
+// }
+// const oldArray = ["One", "Two", "Three", "Four", "Five", "Six"];
+// console.log(arrayTrimmer(oldArray));
+/* ------------------------------ Alternative 2 ----------------------------- */
+export function arrayTrimmer(array) {
+  array.pop();
+  array.shift();
+  return array;
 }
+const oldArray = ["One", "Two", "Three", "Four", "Five", "Six"];
+console.log(arrayTrimmer(oldArray));
 
 /******************************************************************************
 5.
