@@ -246,9 +246,23 @@ Return "😎Primitive values only😎"
 
 ******************************************************************************/
 
-export function coolMaker() {
-  //your code here
+export function coolMaker(param) {
+  let prm = param;
+  const type = typeof param;
+  switch (type) {
+    case "string":
+      return `😎${prm}😎`;
+    case "number":
+      prm = prm * 2;
+      return "😎" + prm.toString() + "😎";
+    case "boolean":
+      return !prm ? "😎Chill😎" : "😎Yeah😎";
+    default:
+      return "😎Primitive values only😎";
+  }
 }
+const param = "45";
+console.log(coolMaker(param));
 
 /******************************************************************************
 8.
