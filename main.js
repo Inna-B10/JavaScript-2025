@@ -199,9 +199,25 @@ Use array methods to do the following:
  Return the resulting array.
 ******************************************************************************/
 
-export function marvelEditor() {
-  //your code here
+export function marvelEditor(array) {
+  let newHeroArray = array.slice(1);
+  newHeroArray[newHeroArray.indexOf("Doctor Strange")] = "Skrull";
+
+  // newHeroArray.splice(newHeroArray.indexOf("Thor"), 2, "Capitan America");
+  newHeroArray.splice(0, 2, "Captain America");
+  newHeroArray = newHeroArray.join("💪");
+  return newHeroArray;
 }
+
+const heroArray = [
+  "Spider-Man",
+  "Thor",
+  "Hulk",
+  "Doctor Strange",
+  "Iron Man",
+  "Black Widow",
+];
+console.log(marvelEditor(heroArray));
 
 /******************************************************************************
 7.
