@@ -261,7 +261,7 @@ export function coolMaker(param) {
       return "😎Primitive values only😎";
   }
 }
-const param = "45";
+const param = 45;
 console.log(coolMaker(param));
 
 /******************************************************************************
@@ -287,6 +287,17 @@ Example3: (["One", "Two", "Three"], "Four") --> ["One", "Two", "Three", "Four"]
 Example4: (["One", "Two", "Three"], "Two") --> ["One", "Three"]
 ******************************************************************************/
 
-export const addOrRemove = () => {
-  //your code here
+export const addOrRemove = (array, str) => {
+  const string = str;
+  const arr = array;
+  if (arr.includes(string)) {
+    arr.splice(arr.indexOf(string), 1);
+    return arr;
+  } else {
+    arr.push(string);
+    return arr;
+  }
 };
+const item = "Green";
+const array = ["Red", "Green", "Blue"];
+console.log(addOrRemove(array, item));
