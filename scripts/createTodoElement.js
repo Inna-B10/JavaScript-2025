@@ -7,4 +7,23 @@
  * @param {Todo} data
  * @returns {HTMLElement}
  */
-export function createTodoElement(data) {}
+
+const template = `
+          <div class="todo-item">
+            <h2></h2>
+            <p class="text-white">Created at: <span></span></p>
+          </div>
+          `;
+
+export function createHtmlElement(data) {
+  const htmlWrapper = document.createElement("li");
+  htmlWrapper.innerHTML = template;
+
+  const hTitle = htmlWrapper.querySelector("h2");
+  hTitle.innerText = data.title;
+
+  const createdTime = htmlWrapper.querySelector("span");
+  createdTime.innerText = data.createdAt;
+
+  return htmlWrapper;
+}

@@ -21,7 +21,7 @@ type TodoCreationInfo = {
  */
 interface TodoList {
   getAllTodoes: () => Todo[];
-  addTodo: (data: TodoCreationInfo) => Todo;
+  createNewTodo: (data: TodoCreationInfo) => Todo;
 }
 
 /**
@@ -30,7 +30,7 @@ interface TodoList {
  * But it should be semantically meaningful and
  * look decent
  */
-type createTodoElement = (todo: Todo) => HTMLElement;
+type createHtmlElement = (todo: Todo) => HTMLElement;
 
 /**
  * A function for updating the display with the current Todoes

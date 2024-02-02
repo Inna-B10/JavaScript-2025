@@ -1,9 +1,16 @@
+import { createUniqueId } from "./utilities.js";
+import { createHtmlElement } from "./createTodoElement.js";
+
+const todoes = [];
+
 /**
  * Returns all the Todoes in a list
  *
  * @returns {Todo}
  */
-export function getAllTodoes() {}
+export function getAllTodoes() {
+  return todoes;
+}
 
 /**
  * Creates a new Todo based on the passed
@@ -12,4 +19,20 @@ export function getAllTodoes() {}
  * @param {TodoCreationInfo} data
  * @returns {Todo}
  */
-export function addTodo(data) {}
+export function createNewTodo(data) {
+  //check if input not empty
+  if (data.title.trim() === "") {
+    alert("Add new task!");
+    return;
+  }
+  //create new object
+  const newTodo = {
+    id: createUniqueId(),
+    title: data.title,
+    createdAt: data.createdAt,
+  };
+  //get all todoes
+  const allTodoes = getAllTodoes();
+  // add new created object to array
+  allTodoes.push(newTodo);
+}

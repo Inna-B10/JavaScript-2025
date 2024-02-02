@@ -2,8 +2,44 @@
  * The file where everything comes together
  */
 import * as todoList from "./scripts/todoList.js";
-import { createTodoElement } from "./scripts/createTodoElement.js";
+import { createHtmlElement } from "./scripts/createTodoElement.js";
 
-// What elements do we need?
-// What events do we need to listen for?
-// What should happen when those event occur?
+// events to listen for
+const userInput = document.querySelector("#text-input");
+const addButton = document.querySelector("#add-task");
+const displayList = document.querySelector("#todo-list");
+
+// when user clicks on the button "add"
+addButton.addEventListener("click", () => {
+  //read input text
+  const taskTitle = userInput.value;
+  //create date stamp
+  const createdTime = new Date().toLocaleString();
+  const newItem = {
+    title: taskTitle,
+    createdAt: createdTime,
+  };
+  //add new task to list
+  todoList.createNewTodo(newItem);
+
+  //display updated list of tasks
+  updateTasksList(newItem);
+
+  //clean input form
+  userInput.value = "";
+});
+/**
+ * Update Todo List
+ * get all todoes and wrapp each of them in HTML
+ */
+function updateTasksList() {
+  //delete previous list
+  displayList.innerHTML = "";
+  //get all todoes
+  const allTodoTasks = todoList.getAllTodoes();
+  //for each todo in array create html template and display
+  for (const todo of allTodoTasks) {
+    const newElement = createHtmlElement(todo);
+    displayList.appendChild(newElement);
+  }
+}

@@ -1,4 +1,36 @@
 /* All the overwriting of the default User Stylesheet are overwritten here */
 body {
-  margin: 0px;
+  font-size: 16px;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input {
+  padding: 10px;
+  margin: 20px;
+  width: 50vw;
+}
+
+button {
+  width: 5vw;
+  padding: 8px 10px;
+  border-radius: 4px;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: inherit;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+}
+
+ul {
+  margin: 0px auto;
+  width: fit-content;
+  list-style: none;
 }

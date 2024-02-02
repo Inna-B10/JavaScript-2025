@@ -18,3 +18,25 @@
 .min-h-screen {
   min-height: 100vh;
 }
+
+/* -------------------------------------------------------------------------- */
+
+.todo-item {
+  padding: 20px 20px 0px 20px;
+  border: 0px solid #000;
+  border-bottom-width: 1px;
+}
+
+.todo-item > p:first-of-type {
+  font-size: small;
+}
+
+#todo-list > li:nth-of-type(odd) {
+  background-color: var(--color-gray-dark);
+  color: var(--color-black);
+}
+
+#todo-list > li:nth-of-type(even) {
+  background-color: var(--color-gray-light);
+  color: var(--color-black);
+}
