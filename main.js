@@ -13,12 +13,18 @@ const displayList = document.querySelector("#todo-list");
 addButton.addEventListener("click", () => {
   //read input text
   const taskTitle = userInput.value;
-  //create date stamp
-  const createdTime = new Date().toLocaleString();
+
+  //create date stamp and convert to local format
+  const createdTime = new Intl.DateTimeFormat("no-NO", {
+    dateStyle: "medium",
+    timeStyle: "short",
+  }).format(new Date());
+
   const newItem = {
     title: taskTitle,
     createdAt: createdTime,
   };
+
   //add new task to list
   todoList.createNewTodo(newItem);
 
@@ -35,8 +41,10 @@ addButton.addEventListener("click", () => {
 function updateTasksList() {
   //delete previous list
   displayList.innerHTML = "";
+
   //get all todoes
   const allTodoTasks = todoList.getAllTodoes();
+
   //for each todo in array create html template and display
   for (const todo of allTodoTasks) {
     const newElement = createHtmlElement(todo);
