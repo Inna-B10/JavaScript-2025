@@ -11,6 +11,9 @@ const displayList = document.querySelector("#todo-list");
 
 // when user clicks on the button "add"
 addButton.addEventListener("click", () => {
+  if (displayList.innerHTML === "") {
+    displayList.classList.add("todo-list");
+  }
   //read input text
   const taskTitle = userInput.value;
 
