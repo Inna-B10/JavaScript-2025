@@ -1,5 +1,4 @@
 import { createUniqueId } from "./utilities.js";
-import { createHtmlElement } from "./createTodoElement.js";
 
 const todoes = [];
 
