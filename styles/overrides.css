@@ -13,12 +13,14 @@ body {
 
 input {
   padding: 10px;
-  margin: 20px;
-  width: 50vw;
+  margin: 20px 0px;
+  width: 70%;
+  border: 2px solid var(--color-primary);
+  border-radius: 4px;
 }
 
 button {
-  width: 5vw;
+  width: 20%;
   padding: 8px 10px;
   border-radius: 4px;
   border: none;
@@ -30,7 +32,26 @@ button {
 }
 
 ul {
-  margin: 0px auto;
-  width: fit-content;
   list-style: none;
+}
+
+h1 {
+  padding: 10px;
+}
+
+main {
+  width: 60vw;
+  margin: 0 auto;
+}
+
+li:first-of-type {
+  border-radius: 4px 4px 0 0;
+}
+
+li:last-of-type {
+  border-radius: 0 0 4px 4px;
+}
+
+footer {
+  padding: 20px 0;
 }

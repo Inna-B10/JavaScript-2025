@@ -9,9 +9,11 @@
  */
 
 const template = `
-          <div class="todo-item">
+<div class="todo-item flex column">
             <h2></h2>
-            <p class="text-white">Created at: <span></span></p>
+            <div class="addInfo flex">
+              <p>Created at: <span></span></p>
+            </div>
           </div>
           `;
 
