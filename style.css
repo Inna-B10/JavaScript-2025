@@ -45,6 +45,9 @@ ol {
 li:not(:last-of-type) {
     margin-bottom: 10px;
 }
+content  {
+justify-content: space-between;
+}
 
 /* -------------------------------------------------------------------------- */
 .subsection::before {

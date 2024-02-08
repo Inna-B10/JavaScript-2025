@@ -135,12 +135,12 @@ const wrapper = document.getElementById("oppgave");
 const assignment1 = document.createElement("H1")
 const content = document.createElement("content")
 content.classList.add("flex")
-const elementDiv = document.createElement("div")
-const elementP = document.createElement("p")
-elementP.innerText = "Display All peoples:";
 
-elementDiv.appendChild(elementP);
-content.appendChild(elementDiv);
+const elementDiv1 = document.createElement("div")
+const elementP1 = document.createElement("p")
+elementP1.innerText = "Display All peoples:";
+elementDiv1.appendChild(elementP1);
+content.appendChild(elementDiv1);
 wrapper.appendChild(assignment1);
 wrapper.appendChild(content)
 
@@ -154,6 +154,7 @@ function displayInfo2(array){
   personName.innerText = `${person.name}`;
   divCard.appendChild(personName);
 
+//!why <span class="bold"> does not show ?
   const personAge = createNode("span", {});
   const spanBold1 = createNode("span", {
     class: "bold"
@@ -192,17 +193,49 @@ displayInfo2(peopleArrayWithObjects);
 //! 1.7
 /* Use .filter to find all persons who have atleast 1 hobby that is the same hobbies as firstPerson. Display this using DOM manipulation */
 
-let commonOtherWithFirst = [];
+let commonOtherWithFirst = {};
 firstPersonHobbies.filter((element) => {
   for (const [key, person] of Object.entries(peopleArrayWithObjects)) {
     if (key > 0) {
       if (person.hobbies.includes(element)) {
-        commonOtherWithFirst.push(element);
+        // commonOtherWithFirst.push(person.name, element);
+        if(commonOtherWithFirst.element){
+console.log("yes")
+        } else{
+          commonOtherWithFirst[element] = person.name; 
+        }
+        console.log(commonOtherWithFirst)
       }
     }
   }
 });
 console.log(commonOtherWithFirst);
+
+const elementDiv2 = createNode("div", {})
+const elementP2 = createNode("p", {})
+elementP2.innerText =
+  "Persons who have atleast 1 hobby that is the same hobbies as firstPerson:";
+elementDiv2.appendChild(elementP2);
+content.appendChild(elementDiv2);
+wrapper.appendChild(content);
+
+const div2 = createNode("div", {})
+const firstPersonInfo = (array) => {
+  for (const [key, value] in array) {
+
+  }
+
+}
+
+
+div2.innerHTML = firstPersonInfo;
+
+
+
+`const showPeople = (data) => {
+    data.map((person) => {
+        const card = `
+
 
 /* ---------------------------- Not Finished Code --------------------------- */
 // let commonHobbiesAll = []
