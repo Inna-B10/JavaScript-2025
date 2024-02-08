@@ -41,9 +41,6 @@ const peopleArrayWithObjects = [
   },
 ];
 
-/*TODO uncomment console, peopleArrayWithObjects.length - 1?  */
-const length = peopleArrayWithObjects.length;
-
 //! 1.
 /* console.log the array */
 
@@ -99,16 +96,70 @@ for (const line of mappedPeople) {
 //! 1.5.
 /* Use .filter and .includes to find out which hobbies are common between firstPerson and lastPerson. Expected output is an array with common hobbies */
 
-const commonHobbies = firstPersonHobbies.filter((element) => {
+const hobbiesFirstLast = firstPersonHobbies.filter((element) => {
   return lastPersonHobbies.includes(element);
 });
-console.log(commonHobbies);
+console.log(hobbiesFirstLast);
+
+// const commonHobbies2 = firstPersonHobbies.filter((element) => {
+// 
+//   
+//   return lastPersonHobbies.includes(element);
+// });
 
 //! 1.6.
-/* Use .map to display all the persons with their information on their page with the DOM. It should also show what hobbies they have in common. Choose whether to use createElement or innerHTML. (Great if you do it both ways, comment out the unused code. Remember to use defer if the script tag is in the head!) */
+/* Use .map to display all the persons with their information on your page DOM manipulation (look at the shared repo of the lessons in the js file mappedOutArray.js for tips). It should also show what hobbies they have in common. Choose whether to use createElement or innerHTML. (Great if you do it both ways, comment out the unused code. Remember to use defer if the script tag is in the head!) */
+
+const wrapper = document.getElementById("oppgave");
+wrapper.innerHTML =
+  '<h1></h1><content class="flex"><div><p>Display All peoples:</p></div></content>';
+  const content = wrapper.querySelector("content div")
+
+function displayInfo(array){
+  array.map((person) =>{
+    const card = `
+    <div class="flex column card">
+      <h2>${person.name}</h2>
+      <span><span class="bold">Age:</span> ${person.age}</span>
+      <span><span class="bold">Country:</span> ${person.country}</span>
+      <span><span class="bold">Hobbies:</span> ${person.hobbies}</span>
+    </div>`;
+    const newCard = document.createElement("div")
+    newCard.innerHTML = card;
+    content.appendChild(newCard)
+  })
+}
+displayInfo(peopleArrayWithObjects);
+
+
 
 //! 1.7
-/* Use .filter to find all persons who have atleast 1 hobby that is the same hobbies as firstPerson. Display this using DOM */
+/* Use .filter to find all persons who have atleast 1 hobby that is the same hobbies as firstPerson. Display this using DOM manipulation */
+
+let commonOtherWithFirst = [];
+firstPersonHobbies.filter((element) => {
+  for (const [key, person] of Object.entries(peopleArrayWithObjects)) {
+    if (key > 0) {
+      if (person.hobbies.includes(element)) {
+        commonOtherWithFirst.push(element);
+      }
+    }
+  }
+});
+console.log(commonOtherWithFirst);
+
+/* ---------------------------- Not Finished Code --------------------------- */
+// let commonHobbiesAll = []
+// firstPersonHobbies.filter((element) => {
+//   for (const [key, person] of Object.entries(peopleArrayWithObjects)) {
+// 
+//       if (person.hobbies.includes(element)) {
+//         
+//         commonHobbiesAll.push(element);
+//       }
+//   }
+// });
+// console.log(commonHobbiesAll);
 
 //! 2
 /* Generate a random array with 10 random numbers between 1 and 100. console.log the array. */
