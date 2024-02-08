@@ -101,12 +101,6 @@ const hobbiesFirstLast = firstPersonHobbies.filter((element) => {
 });
 console.log(hobbiesFirstLast);
 
-// const commonHobbies2 = firstPersonHobbies.filter((element) => {
-//
-//
-//   return lastPersonHobbies.includes(element);
-// });
-
 //! 1.6.
 /* Use .map to display all the persons with their information on your page DOM manipulation (look at the shared repo of the lessons in the js file mappedOutArray.js for tips). It should also show what hobbies they have in common. Choose whether to use createElement or innerHTML. (Great if you do it both ways, comment out the unused code. Remember to use defer if the script tag is in the head!) */
 
@@ -197,12 +191,12 @@ firstPersonHobbies.filter((element) => {
     if (key > 0) {
       if (person.hobbies.includes(element)) {
         // commonOtherWithFirst.push(person.name, element);
-        if (commonOtherWithFirst.element) {
-          console.log("yes");
+        if (element in commonOtherWithFirst) {
+          commonOtherWithFirst[element] =
+            commonOtherWithFirst[element] + `,${person.name}`;
         } else {
           commonOtherWithFirst[element] = person.name;
         }
-        console.log(commonOtherWithFirst);
       }
     }
   }
@@ -220,6 +214,7 @@ wrapper.appendChild(content);
 const div2 = createNode("div", {});
 const firstPersonInfo = (array) => {
   for (const [key, value] in array) {
+    console.log(key);
   }
 };
 
