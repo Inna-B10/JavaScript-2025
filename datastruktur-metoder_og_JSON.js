@@ -102,8 +102,8 @@ const hobbiesFirstLast = firstPersonHobbies.filter((element) => {
 console.log(hobbiesFirstLast);
 
 // const commonHobbies2 = firstPersonHobbies.filter((element) => {
-// 
-//   
+//
+//
 //   return lastPersonHobbies.includes(element);
 // });
 
@@ -115,7 +115,7 @@ const wrapper = document.getElementById("oppgave");
 // wrapper.innerHTML =
 //   '<h1></h1><content class="flex"><div><p>Display All peoples:</p></div></content>';
 //   const section1 = wrapper.querySelector("content div")
-// 
+//
 // function displayInfo(array){
 //   array.map((person) =>{
 //     const card = `
@@ -132,63 +132,61 @@ const wrapper = document.getElementById("oppgave");
 // }
 // displayInfo(peopleArrayWithObjects);
 /* -------------------------------------------------------------------------- */
-const assignment1 = document.createElement("H1")
-const content = document.createElement("content")
-content.classList.add("flex")
+const assignment1 = document.createElement("H1");
+const content = document.createElement("content");
+content.classList.add("flex");
 
-const elementDiv1 = document.createElement("div")
-const elementP1 = document.createElement("p")
+const elementDiv1 = document.createElement("div");
+const elementP1 = document.createElement("p");
 elementP1.innerText = "Display All peoples:";
 elementDiv1.appendChild(elementP1);
 content.appendChild(elementDiv1);
 wrapper.appendChild(assignment1);
-wrapper.appendChild(content)
+wrapper.appendChild(content);
 
-function displayInfo2(array){
-  array.map((person) =>{
-  const divCard = createNode("div", {
-    class: "flex column card",
+function displayInfo2(array) {
+  array.map((person) => {
+    const divCard = createNode("div", {
+      class: "flex column card",
+    });
+
+    const personName = createNode("h2", {});
+    personName.innerText = `${person.name}`;
+    divCard.appendChild(personName);
+
+    //!why <span class="bold"> does not show ?
+    const personAge = createNode("span", {});
+    const spanBold1 = createNode("span", {
+      class: "bold",
+    });
+    spanBold1.innerText = "Age: ";
+    personAge.appendChild(spanBold1);
+    personAge.innerText += `${person.age}`;
+    divCard.appendChild(personAge);
+
+    const personCountry = createNode("span", {});
+    const spanBold2 = createNode("span", {
+      class: "bold",
+    });
+    spanBold2.innerText = "Country: ";
+    personCountry.appendChild(spanBold2);
+    personCountry.innerText += `${person.country}`;
+    divCard.appendChild(personCountry);
+
+    const personHobbies = createNode("span", {});
+    const spanBold3 = createNode("span", {
+      class: "bold",
+    });
+    spanBold3.innerText = "Hobbies: ";
+    personHobbies.appendChild(spanBold3);
+    personHobbies.innerText += `${person.hobbies}`;
+    divCard.appendChild(personHobbies);
+
+    const section1 = wrapper.querySelector("content div");
+    section1.appendChild(divCard);
   });
-
-  const personName = createNode("h2", {});
-  personName.innerText = `${person.name}`;
-  divCard.appendChild(personName);
-
-//!why <span class="bold"> does not show ?
-  const personAge = createNode("span", {});
-  const spanBold1 = createNode("span", {
-    class: "bold"
-  });
-  spanBold1.innerText = "Age: ";
-  personAge.appendChild(spanBold1);
-  personAge.innerText += `${person.age}`;
-  divCard.appendChild(personAge);
-
-  const personCountry = createNode("span", {});
-  const spanBold2 = createNode("span", {
-    class: "bold"
-  });
-  spanBold2.innerText = "Country: ";
-  personCountry.appendChild(spanBold2);
-  personCountry.innerText += `${person.country}`;
-  divCard.appendChild(personCountry);
-
-  const personHobbies = createNode("span", {});
-  const spanBold3 = createNode("span", {
-    class: "bold"
-  });
-  spanBold3.innerText = "Hobbies: ";
-  personHobbies.appendChild(spanBold3);
-  personHobbies.innerText += `${person.hobbies}`;
-  divCard.appendChild(personHobbies);
-
-  const section1 = wrapper.querySelector("content div");
-  section1.appendChild(divCard);
-})
-
 }
 displayInfo2(peopleArrayWithObjects);
-
 
 //! 1.7
 /* Use .filter to find all persons who have atleast 1 hobby that is the same hobbies as firstPerson. Display this using DOM manipulation */
@@ -199,57 +197,46 @@ firstPersonHobbies.filter((element) => {
     if (key > 0) {
       if (person.hobbies.includes(element)) {
         // commonOtherWithFirst.push(person.name, element);
-        if(commonOtherWithFirst.element){
-console.log("yes")
-        } else{
-          commonOtherWithFirst[element] = person.name; 
+        if (commonOtherWithFirst.element) {
+          console.log("yes");
+        } else {
+          commonOtherWithFirst[element] = person.name;
         }
-        console.log(commonOtherWithFirst)
+        console.log(commonOtherWithFirst);
       }
     }
   }
 });
 console.log(commonOtherWithFirst);
 
-const elementDiv2 = createNode("div", {})
-const elementP2 = createNode("p", {})
+const elementDiv2 = createNode("div", {});
+const elementP2 = createNode("p", {});
 elementP2.innerText =
   "Persons who have atleast 1 hobby that is the same hobbies as firstPerson:";
 elementDiv2.appendChild(elementP2);
 content.appendChild(elementDiv2);
 wrapper.appendChild(content);
 
-const div2 = createNode("div", {})
+const div2 = createNode("div", {});
 const firstPersonInfo = (array) => {
   for (const [key, value] in array) {
-
   }
-
-}
-
+};
 
 div2.innerHTML = firstPersonInfo;
-
-
-
-`const showPeople = (data) => {
-    data.map((person) => {
-        const card = `
-
-
 /* ---------------------------- Not Finished Code --------------------------- */
 // let commonHobbiesAll = []
 // firstPersonHobbies.filter((element) => {
 //   for (const [key, person] of Object.entries(peopleArrayWithObjects)) {
-// 
+//
 //       if (person.hobbies.includes(element)) {
-//         
+//
 //         commonHobbiesAll.push(element);
 //       }
 //   }
 // });
 // console.log(commonHobbiesAll);
-
+/* -------------------------------------------------------------------------- */
 //! 2
 /* Generate a random array with 10 random numbers between 1 and 100. console.log the array. */
 
@@ -257,9 +244,9 @@ const randomNum = Array.from(
   { length: 10 },
   () => Math.floor(Math.random() * 100) + 1
 );
-const uniqueRandomNum = randomNum.filter(
-  (interim, index) => randomNum.indexOf(interim) === index
-).sort((a,b) => a-b);
+const uniqueRandomNum = randomNum
+  .filter((interim, index) => randomNum.indexOf(interim) === index)
+  .sort((a, b) => a - b);
 
 console.log(uniqueRandomNum);
 
@@ -343,21 +330,21 @@ if (sumEvenNum > sumOddNum) {
 } else {
   largestSum = `Both arrays have an equal sum: ${sumEvenNum} = ${sumOddNum}`;
 }
-console.log(largestSum)
+console.log(largestSum);
 
 //! 2.5:
 
 /* Display the results from all steps in task 2 (2, 2.1, 2.2, 2.3, 2.4) with DOM in a good way */
 
- const wrapper2 = createNode("div", {
-  id:"oppgave2"
- });
+const wrapper2 = createNode("div", {
+  id: "oppgave2",
+});
 
- const title = createNode("h1", {});
- wrapper2.appendChild(title);
+const title = createNode("h1", {});
+wrapper2.appendChild(title);
 
- const sub2 = createNode("div", {});
- sub2.innerText = `The array of 10 randomly generated (unique) numbers between 1 and 100:
+const sub2 = createNode("div", {});
+sub2.innerText = `The array of 10 randomly generated (unique) numbers between 1 and 100:
  ${uniqueRandomNum}`;
 wrapper2.appendChild(sub2);
 
@@ -378,14 +365,14 @@ The largest number in the array of even numbers is: ${maxEvenNum}`;
 ol.appendChild(li2);
 
 const li3 = createNode("li", {
-  class:"subsection",
+  class: "subsection",
 });
 li3.innerText = `The sum of odd numbers is: ${sumOddNum}
 The sum of even numbers is: ${sumEvenNum}`;
 ol.appendChild(li3);
 
 const li4 = createNode("li", {
-  class:"subsection",
+  class: "subsection",
 });
 li4.innerText = largestSum;
 ol.appendChild(li4);
