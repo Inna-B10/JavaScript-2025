@@ -111,26 +111,82 @@ console.log(hobbiesFirstLast);
 /* Use .map to display all the persons with their information on your page DOM manipulation (look at the shared repo of the lessons in the js file mappedOutArray.js for tips). It should also show what hobbies they have in common. Choose whether to use createElement or innerHTML. (Great if you do it both ways, comment out the unused code. Remember to use defer if the script tag is in the head!) */
 
 const wrapper = document.getElementById("oppgave");
-wrapper.innerHTML =
-  '<h1></h1><content class="flex"><div><p>Display All peoples:</p></div></content>';
-  const content = wrapper.querySelector("content div")
+/* ---------------------------- InnerHTML Method ---------------------------- */
+// wrapper.innerHTML =
+//   '<h1></h1><content class="flex"><div><p>Display All peoples:</p></div></content>';
+//   const section1 = wrapper.querySelector("content div")
+// 
+// function displayInfo(array){
+//   array.map((person) =>{
+//     const card = `
+//     <div class="flex column card">
+//       <h2>${person.name}</h2>
+//       <span><span class="bold">Age:</span> ${person.age}</span>
+//       <span><span class="bold">Country:</span> ${person.country}</span>
+//       <span><span class="bold">Hobbies:</span> ${person.hobbies}</span>
+//     </div>`;
+//     const newCard = document.createElement("div")
+//     newCard.innerHTML = card;
+//     section1.appendChild(newCard)
+//   })
+// }
+// displayInfo(peopleArrayWithObjects);
+/* -------------------------------------------------------------------------- */
+const assignment1 = document.createElement("H1")
+const content = document.createElement("content")
+content.classList.add("flex")
+const elementDiv = document.createElement("div")
+const elementP = document.createElement("p")
+elementP.innerText = "Display All peoples:";
 
-function displayInfo(array){
+elementDiv.appendChild(elementP);
+content.appendChild(elementDiv);
+wrapper.appendChild(assignment1);
+wrapper.appendChild(content)
+
+function displayInfo2(array){
   array.map((person) =>{
-    const card = `
-    <div class="flex column card">
-      <h2>${person.name}</h2>
-      <span><span class="bold">Age:</span> ${person.age}</span>
-      <span><span class="bold">Country:</span> ${person.country}</span>
-      <span><span class="bold">Hobbies:</span> ${person.hobbies}</span>
-    </div>`;
-    const newCard = document.createElement("div")
-    newCard.innerHTML = card;
-    content.appendChild(newCard)
-  })
-}
-displayInfo(peopleArrayWithObjects);
+  const divCard = createNode("div", {
+    class: "flex column card",
+  });
 
+  const personName = createNode("h2", {});
+  personName.innerText = `${person.name}`;
+  divCard.appendChild(personName);
+
+  const personAge = createNode("span", {});
+  const spanBold1 = createNode("span", {
+    class: "bold"
+  });
+  spanBold1.innerText = "Age: ";
+  personAge.appendChild(spanBold1);
+  personAge.innerText += `${person.age}`;
+  divCard.appendChild(personAge);
+
+  const personCountry = createNode("span", {});
+  const spanBold2 = createNode("span", {
+    class: "bold"
+  });
+  spanBold2.innerText = "Country: ";
+  personCountry.appendChild(spanBold2);
+  personCountry.innerText += `${person.country}`;
+  divCard.appendChild(personCountry);
+
+  const personHobbies = createNode("span", {});
+  const spanBold3 = createNode("span", {
+    class: "bold"
+  });
+  spanBold3.innerText = "Hobbies: ";
+  personHobbies.appendChild(spanBold3);
+  personHobbies.innerText += `${person.hobbies}`;
+  divCard.appendChild(personHobbies);
+
+  const section1 = wrapper.querySelector("content div");
+  section1.appendChild(divCard);
+})
+
+}
+displayInfo2(peopleArrayWithObjects);
 
 
 //! 1.7
@@ -260,15 +316,6 @@ console.log(largestSum)
 
 /* Display the results from all steps in task 2 (2, 2.1, 2.2, 2.3, 2.4) with DOM in a good way */
 
-/* ------------------- Create HTML Element With Attributes ------------------ */
-function createNode(node, attributes) {
-  const el = document.createElement(node);
-  for (let key in attributes) {
-    el.setAttribute(key, attributes[key]);
-  }
-  return el;
-}
-
  const wrapper2 = createNode("div", {
   id:"oppgave2"
  });
@@ -314,3 +361,12 @@ wrapper2.appendChild(ol);
 
 const oppgave2 = document.querySelector("body");
 oppgave2.appendChild(wrapper2);
+
+/* ------------------- Create HTML Element With Attributes ------------------ */
+function createNode(node, attributes) {
+  const el = document.createElement(node);
+  for (let key in attributes) {
+    el.setAttribute(key, attributes[key]);
+  }
+  return el;
+}
