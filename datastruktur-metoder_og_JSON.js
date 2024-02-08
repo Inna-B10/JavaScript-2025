@@ -130,11 +130,11 @@ const assignment1 = document.createElement("H1");
 const content = document.createElement("content");
 content.classList.add("flex");
 
-const elementDiv1 = document.createElement("div");
-const elementP1 = document.createElement("p");
-elementP1.innerText = "Display All peoples:";
-elementDiv1.appendChild(elementP1);
-content.appendChild(elementDiv1);
+const section1 = document.createElement("div");
+const title1 = document.createElement("p");
+title1.innerText = "Display All peoples:";
+section1.appendChild(title1);
+content.appendChild(section1);
 wrapper.appendChild(assignment1);
 wrapper.appendChild(content);
 
@@ -144,11 +144,13 @@ function displayInfo2(array) {
       class: "flex column card",
     });
 
-    const personName = createNode("h2", {});
+    const personName = createNode("span", {
+      class: "bold",
+    });
     personName.innerText = `${person.name}`;
     divCard.appendChild(personName);
 
-    //!why <span class="bold"> does not show ?
+    //! <span class="bold"> does not show ? WHY?
     const personAge = createNode("span", {});
     const spanBold1 = createNode("span", {
       class: "bold",
@@ -176,8 +178,8 @@ function displayInfo2(array) {
     personHobbies.innerText += `${person.hobbies}`;
     divCard.appendChild(personHobbies);
 
-    const section1 = wrapper.querySelector("content div");
-    section1.appendChild(divCard);
+    const div1 = wrapper.querySelector("content div");
+    div1.appendChild(divCard);
   });
 }
 displayInfo2(peopleArrayWithObjects);
@@ -191,11 +193,12 @@ firstPersonHobbies.filter((element) => {
     if (key > 0) {
       if (person.hobbies.includes(element)) {
         // commonOtherWithFirst.push(person.name, element);
-        if (element in commonOtherWithFirst) {
-          commonOtherWithFirst[element] =
-            commonOtherWithFirst[element] + `, ${person.name}`;
+        const hobby = element.toLowerCase();
+        if (hobby in commonOtherWithFirst) {
+          commonOtherWithFirst[hobby] =
+            commonOtherWithFirst[hobby] + `, ${person.name}`;
         } else {
-          commonOtherWithFirst[element] = person.name;
+          commonOtherWithFirst[hobby] = person.name;
         }
       }
     }
@@ -203,12 +206,14 @@ firstPersonHobbies.filter((element) => {
 });
 console.log(commonOtherWithFirst);
 
-const elementDiv2 = createNode("div", {});
-content.appendChild(elementDiv2);
+const div2 = createNode("div", {});
 
-const elementP3 = createNode("p", {});
-elementP3.innerHTML = `First person <b>${firstPerson.name},</b> has hobbies: ${firstPerson.hobbies}`;
-elementDiv2.appendChild(elementP3);
+const section2 = createNode("div", {});
+div2.appendChild(section2);
+
+const title2 = createNode("p", {});
+title2.innerHTML = `First person <b>${firstPerson.name},</b> has hobbies: ${firstPerson.hobbies}`;
+section2.appendChild(title2);
 
 const elementP2 = createNode("p", {});
 elementP2.innerText = `Persons who have atleast 1 hobby that is the same hobbies as ${firstPerson.name}:`;
@@ -220,26 +225,53 @@ commonCard.appendChild(elementP2);
 const commonHobbies = (array) => {
   for (const key in array) {
     const hobby = createNode("p", {});
-    hobby.innerText = `${array[key]} : ${key}`;
+    hobby.innerText = `${key}: ${array[key]}`;
     commonCard.appendChild(hobby);
   }
 };
 commonHobbies(commonOtherWithFirst);
-elementDiv2.appendChild(commonCard);
+section2.appendChild(commonCard);
 
-/* ---------------------------- Not Finished Code --------------------------- */
-// let commonHobbiesAll = []
-// firstPersonHobbies.filter((element) => {
-//   for (const [key, person] of Object.entries(peopleArrayWithObjects)) {
-//
-//       if (person.hobbies.includes(element)) {
-//
-//         commonHobbiesAll.push(element);
-//       }
-//   }
-// });
-// console.log(commonHobbiesAll);
-/* -------------------------------------------------------------------------- */
+/* --------------------- Compare Hobbies Of All Peoples --------------------- */
+const commonHobbiesAll = {};
+peopleArrayWithObjects.map((person) => {
+  person.hobbies.forEach((item) => {
+    const hobby = item.toLowerCase();
+    if (hobby in commonHobbiesAll) {
+      commonHobbiesAll[hobby] = commonHobbiesAll[hobby] + `, ${person.name}`;
+    } else {
+      commonHobbiesAll[hobby] = person.name;
+    }
+  });
+});
+console.log(commonHobbiesAll);
+
+const title3 = createNode("p", {});
+title3.innerText = "Common hobbies of all persons:";
+div2.appendChild(title3);
+
+const section3 = createNode("div", {
+  class: "card",
+});
+
+const showCommonHobbiesAll = (array) => {
+  for (const key in array) {
+    const hobby = createNode("p", {});
+    const list = array[key].split(", ");
+    if (list.length > 1) {
+      hobby.innerText = `${key}: ${array[key]}`;
+      section3.appendChild(hobby);
+    }
+  }
+};
+
+showCommonHobbiesAll(commonHobbiesAll);
+div2.appendChild(section3);
+content.appendChild(div2);
+
+/* ========================================================================== */
+/*                                  OPPGAVE2                                  */
+/* ========================================================================== */
 //! 2
 /* Generate a random array with 10 random numbers between 1 and 100. console.log the array. */
 
