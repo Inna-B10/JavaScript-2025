@@ -204,25 +204,28 @@ firstPersonHobbies.filter((element) => {
 console.log(commonOtherWithFirst);
 
 const elementDiv2 = createNode("div", {});
-const elementP2 = createNode("p", {});
-elementP2.innerText =
-  "Persons who have atleast 1 hobby that is the same hobbies as firstPerson:";
-elementDiv2.appendChild(elementP2);
 content.appendChild(elementDiv2);
 
 const elementP3 = createNode("p", {});
 elementP3.innerHTML = `First person <b>${firstPerson.name},</b> has hobbies: ${firstPerson.hobbies}`;
 elementDiv2.appendChild(elementP3);
-const elementP4 = createNode("p", {});
-elementP4.innerText = "Common hobbies with other persons:";
+
+const elementP2 = createNode("p", {});
+elementP2.innerText = `Persons who have atleast 1 hobby that is the same hobbies as ${firstPerson.name}:`;
+
+const commonCard = createNode("div", {
+  class: "card",
+});
+commonCard.appendChild(elementP2);
 const commonHobbies = (array) => {
   for (const key in array) {
     const hobby = createNode("p", {});
-    hobby.innerText = `${key} : ${array[key]}`;
-    elementDiv2.appendChild(hobby);
+    hobby.innerText = `${array[key]} : ${key}`;
+    commonCard.appendChild(hobby);
   }
 };
 commonHobbies(commonOtherWithFirst);
+elementDiv2.appendChild(commonCard);
 
 /* ---------------------------- Not Finished Code --------------------------- */
 // let commonHobbiesAll = []
