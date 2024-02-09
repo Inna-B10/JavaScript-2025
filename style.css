@@ -40,13 +40,16 @@ h1::before {
 ol {
     list-style-type: none;
     position: relative;
+    left: 35px;
+    margin-top: 10px;
 }
 
 li:not(:last-of-type) {
     margin-bottom: 10px;
 }
-content  {
-justify-content: space-between;
+
+content {
+    justify-content: space-between;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -54,14 +57,14 @@ justify-content: space-between;
     counter-increment: subsection;
     content: counter(section) "." counter(subsection) " ";
     position: absolute;
-    left: 10px;
+    left: -35px;
 }
 
 .bold {
     font-weight: bold;
 }
 
-.card{
+.card {
     margin: 20px;
     padding: 20px;
     box-shadow: 0 0 5px #aaaaaa;
