@@ -95,6 +95,7 @@ for (const line of mappedPeople) {
 
 //! 1.5.
 /* Use .filter and .includes to find out which hobbies are common between firstPerson and lastPerson. Expected output is an array with common hobbies */
+//? includes() is case sensitive. How to check if the first letter has different cases?
 
 const hobbiesFirstLast = firstPersonHobbies.filter((element) => {
   return lastPersonHobbies.includes(element);
@@ -150,7 +151,7 @@ function displayInfo2(array) {
     personName.innerText = `${person.name}`;
     divCard.appendChild(personName);
 
-    //! <span class="bold"> does not show ? WHY?
+    //? <span class="bold"> does not show ? WHY?
     const personAge = createNode("span", {});
     const spanBold1 = createNode("span", {
       class: "bold",
