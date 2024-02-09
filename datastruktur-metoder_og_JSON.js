@@ -151,14 +151,13 @@ function displayInfo2(array) {
     personName.innerText = `${person.name}`;
     divCard.appendChild(personName);
 
-    //? <span class="bold"> does not show ? WHY?
     const personAge = createNode("span", {});
     const spanBold1 = createNode("span", {
       class: "bold",
     });
     spanBold1.innerText = "Age: ";
     personAge.appendChild(spanBold1);
-    personAge.innerText += `${person.age}`;
+    personAge.innerHTML += `${person.age}`;
     divCard.appendChild(personAge);
 
     const personCountry = createNode("span", {});
