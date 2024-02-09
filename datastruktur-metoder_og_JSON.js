@@ -70,6 +70,8 @@ for (const [key, value] of Object.entries(firstPerson)) {
   }
 }
 console.log(firstPersonHobbies);
+//console.log(Object.entries(firstPerson)[5][1]);             //alternative
+//console.log(Object.entries(firstPerson["hobbies"]));        //alternative
 
 let lastPersonHobbies = [];
 for (const [key, value] of Object.entries(lastPerson)) {
@@ -93,14 +95,24 @@ for (const line of mappedPeople) {
   console.log(line.hobbies);
 }
 
+//console.log(firstPerson.hobbies.map((hobby, index) => [index, hobby]));             //alternative
+
 //! 1.5.
 /* Use .filter and .includes to find out which hobbies are common between firstPerson and lastPerson. Expected output is an array with common hobbies */
-//? includes() is case sensitive. How to check if the first letter has different cases?
+//* includes() is case sensitive. чтобы сравнить значения независимо от регистра букв, нужно создать новый array при помощи .map() и привести все значения к нижнему регистру.
 
-const hobbiesFirstLast = firstPersonHobbies.filter((element) => {
-  return lastPersonHobbies.includes(element);
-});
+const hobbiesFirstLast = firstPersonHobbies
+  .map((hobby) => hobby.toLowerCase())
+  .filter((element) =>
+    lastPersonHobbies.map((h) => h.toLowerCase()).includes(element)
+  );
+
 console.log(hobbiesFirstLast);
+
+// const hobbiesFirstLast = firstPersonHobbies.filter((element) => {
+//   return lastPersonHobbies.includes(element);
+// });
+// console.log(hobbiesFirstLast);
 
 //! 1.6.
 /* Use .map to display all the persons with their information on your page DOM manipulation (look at the shared repo of the lessons in the js file mappedOutArray.js for tips). It should also show what hobbies they have in common. Choose whether to use createElement or innerHTML. (Great if you do it both ways, comment out the unused code. Remember to use defer if the script tag is in the head!) */
@@ -340,6 +352,8 @@ function maxNumber(array) {
 
 // console.log(maxOddNum)
 // console.log(maxEvenNum)
+
+//const maxNumber = (arr) => Math.max(...arr);          //alternative
 
 //! 2.3.
 /* Write a function that adds up all the numbers in the different arrays. So the sum of odd numbers in one result and the sum of even numbers in another result. Use a parameter in the function so that the same function can be used on both arrays. console.log the results. */
