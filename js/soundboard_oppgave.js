@@ -98,13 +98,6 @@ document.addEventListener("click", (event) => {
   playSound(buttonId);
 });
 
-function setPause() {
-  const audioElements = document.querySelectorAll("audio");
-  audioElements.forEach((audio) => {
-    audio.pause();
-    audio.currentTime = 0;
-  });
-}
 //3.6. append the created button and audio element to the html element you refered in 1.
 
 // drumkit.appendChild(button);
@@ -123,6 +116,8 @@ function createButtons() {
 //*4. Call on the function that loops over the sounds and creates the buttons */
 
 createButtons();
+
+/* -------------------------- Additional Functions -------------------------- */
 function playSound(id) {
   sounds.map((el) => {
     if (id === el.key) {
@@ -130,5 +125,13 @@ function playSound(id) {
       const playFile = document.getElementById(id);
       playFile.play();
     }
+  });
+}
+
+function setPause() {
+  const audioElements = document.querySelectorAll("audio");
+  audioElements.forEach((audio) => {
+    audio.pause();
+    audio.currentTime = 0;
   });
 }

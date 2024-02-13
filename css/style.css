@@ -1,1 +1,7 @@
 /* Add styles here to make the soundboard actually look like a soundboard! */
+
+button {
+    width: 50px;
+    margin: 5px;
+    padding: 5px;
+}
