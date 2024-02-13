@@ -7,8 +7,8 @@
 /* -------------------------------------------------------------------------- */
 
 export const sounds = [
-  { file: "/notes/uptempo.wav", key: "u" },
-  { file: "/notes/bounce.wav", key: "b" },
-  { file: "/notes/electro.wav", key: "e" },
-  { file: "/notes/lofi.wav", key: "l" },
+  { file: "../notes/uptempo.wav", key: "u" },
+  { file: "../notes/bounce.wav", key: "b" },
+  { file: "../notes/electro.wav", key: "e" },
+  { file: "../notes/lofi.wav", key: "l" },
 ];
