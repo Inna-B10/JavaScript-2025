@@ -138,7 +138,7 @@ function setPause() {
     audio.playbackRate = 1;
     const resetSpeed = document.getElementById("currentPbr");
     resetSpeed.innerText = 1;
-    speed.value = 1;
+    playbackRate.value = 1;
   });
 }
 
@@ -161,33 +161,30 @@ muteButton.addEventListener("click", () => {
 
 drumkit.appendChild(muteButton);
 
-/* -------------------------- PlayBackRange Button -------------------------- */
+/* -------------------------- playbackRate Button -------------------------- */
 const form = createNode("form", {});
-const playBackRange = createNode("input", {
+const playbackRate = createNode("input", {
   id: "pbr",
   type: "range",
   value: 1,
-  min: 0.5,
+  min: 0.25,
   max: 2,
-  step: 0.1,
+  step: 0.25,
 });
-
+playbackRate.value = 1;
 const currentPbr = createNode("span", {
   id: "currentPbr",
 });
-currentPbr.innerText = "1";
+currentPbr.innerText = playbackRate.defaultValue;
 const pbrText = createNode("p", {});
 
 pbrText.innerHTML = "Playback rate: ";
 pbrText.appendChild(currentPbr);
-form.appendChild(playBackRange);
+form.appendChild(playbackRate);
 form.appendChild(pbrText);
 drumkit.appendChild(form);
 
-const speed = document.getElementById("pbr");
-const currentSpeed = document.getElementById("currentPbr");
-
-speed.addEventListener("input", () => {
-  whatPlayingNow.playbackRate = speed.value;
-  currentSpeed.innerText = speed.value;
+playbackRate.addEventListener("input", () => {
+  whatPlayingNow.playbackRate = playbackRate.value;
+  currentPbr.innerText = playbackRate.value;
 });
