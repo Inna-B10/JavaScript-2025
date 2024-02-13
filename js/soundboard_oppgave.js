@@ -134,3 +134,11 @@ function setPause() {
     audio.currentTime = 0;
   });
 }
+
+const muteButton = document.createElement("button");
+muteButton.innerText = "STOP";
+muteButton.addEventListener("click", () => {
+  setPause();
+});
+
+drumkit.appendChild(muteButton);
