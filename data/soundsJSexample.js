@@ -7,8 +7,8 @@
 /* -------------------------------------------------------------------------- */
 
 export const sounds = [
-  { file: "/notes/haunted-mansion-3.wav", key: "c" },
-  { file: "/notes/a.mp3", key: "a" },
-  { file: "/notes/f.mp3", key: "f" },
-  { file: "/notes/d.mp3", key: "d" },
+  { file: "/notes/uptempo.wav", key: "u" },
+  { file: "/notes/bounce.wav", key: "b" },
+  { file: "/notes/electro.wav", key: "e" },
+  { file: "/notes/lofi.wav", key: "l" },
 ];
