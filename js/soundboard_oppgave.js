@@ -135,7 +135,7 @@ function setPause() {
   audioElements.forEach((audio) => {
     audio.pause();
     audio.currentTime = 0;
-    audio.playbackRate = "1";
+    audio.playbackRate = 1;
     const resetSpeed = document.getElementById("currentPbr");
     resetSpeed.innerText = 1;
     speed.value = 1;
@@ -191,12 +191,3 @@ speed.addEventListener("input", () => {
   whatPlayingNow.playbackRate = speed.value;
   currentSpeed.innerText = speed.value;
 });
-
-{
-  /* <form>
-  <input id="pbr" type="range" value="1" min="0.5" max="4" step="0.1" />
-  <p>
-    Playback Rate <span id="currentPbr">1</span>
-  </p>
-</form>; */
-}
