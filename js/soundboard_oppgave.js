@@ -4,7 +4,7 @@
 // to use type="module" for this js file when using imports
 // to use assert {type: "json"} if using a json file
 // examples of how the structure can look is in the data folder
-import { sounds } from "../javascript-Hendelser-og-hendelsesbehandling-oppgave/data/soundsJSexample.js";
+import { sounds } from "../data/soundsJSexample.js";
 
 //*1. Catch the html element with id drumkit: */
 
