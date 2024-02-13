@@ -94,8 +94,10 @@ document.addEventListener("keypress", (KeyboardEvent) => {
 //3.5. OPTIONAL. Create an eventlistener for clicking. Also create a logic for preventing more sounds to be played at the same time
 
 document.addEventListener("click", (event) => {
-  const buttonId = event.target.lastElementChild.id;
-  playSound(buttonId);
+  if (event.target.id !== "stop" && event.target.id !== "pbr") {
+    const buttonId = event.target.lastElementChild.id;
+    playSound(buttonId);
+  }
 });
 
 //3.6. append the created button and audio element to the html element you refered in 1.
@@ -105,7 +107,7 @@ document.addEventListener("click", (event) => {
 
 //*4. Create a function that loops over the sounds (from the data file you created). Use that function created in 3. to use the logic there to create the buttons. I prefer that you use .forEach or .map */
 function createButtons() {
-  sounds.forEach((value, index) => {
+  sounds.forEach((value) => {
     const array = setButton(value.file);
     drumkit.appendChild(array.button);
     array.button.appendChild(array.playFile);
@@ -115,16 +117,17 @@ function createButtons() {
 //*4. Call on the function that loops over the sounds and creates the buttons */
 
 createButtons();
-
+let whatPlayingNow = "";
 /* -------------------------- Additional Functions -------------------------- */
 function playSound(id) {
   sounds.map((el) => {
     if (id === el.key) {
       setPause();
-      const playFile = document.getElementById(id);
-      playFile.play();
+      whatPlayingNow = document.getElementById(id);
+      whatPlayingNow.play();
     }
   });
+  return whatPlayingNow;
 }
 
 function setPause() {
@@ -132,13 +135,68 @@ function setPause() {
   audioElements.forEach((audio) => {
     audio.pause();
     audio.currentTime = 0;
+    audio.playbackRate = "1";
+    const resetSpeed = document.getElementById("currentPbr");
+    resetSpeed.innerText = 1;
+    speed.value = 1;
   });
 }
 
-const muteButton = document.createElement("button");
+function createNode(node, attributes) {
+  const el = document.createElement(node);
+  for (let key in attributes) {
+    el.setAttribute(key, attributes[key]);
+  }
+  return el;
+}
+
+/* ------------------------------- Stop Button ------------------------------ */
+const muteButton = createNode("button", {
+  id: "stop",
+});
 muteButton.innerText = "STOP";
 muteButton.addEventListener("click", () => {
   setPause();
 });
 
 drumkit.appendChild(muteButton);
+
+/* -------------------------- PlayBackRange Button -------------------------- */
+const form = createNode("form", {});
+const playBackRange = createNode("input", {
+  id: "pbr",
+  type: "range",
+  value: 1,
+  min: 0.5,
+  max: 2,
+  step: 0.1,
+});
+
+const currentPbr = createNode("span", {
+  id: "currentPbr",
+});
+currentPbr.innerText = "1";
+const pbrText = createNode("p", {});
+
+pbrText.innerHTML = "Playback rate: ";
+pbrText.appendChild(currentPbr);
+form.appendChild(playBackRange);
+form.appendChild(pbrText);
+drumkit.appendChild(form);
+
+const speed = document.getElementById("pbr");
+const currentSpeed = document.getElementById("currentPbr");
+
+speed.addEventListener("input", () => {
+  whatPlayingNow.playbackRate = speed.value;
+  currentSpeed.innerText = speed.value;
+});
+
+{
+  /* <form>
+  <input id="pbr" type="range" value="1" min="0.5" max="4" step="0.1" />
+  <p>
+    Playback Rate <span id="currentPbr">1</span>
+  </p>
+</form>; */
+}
