@@ -107,7 +107,6 @@ document.addEventListener("click", (event) => {
 function createButtons() {
   sounds.forEach((value, index) => {
     const array = setButton(value.file);
-    console.log(array);
     drumkit.appendChild(array.button);
     array.button.appendChild(array.playFile);
   });
