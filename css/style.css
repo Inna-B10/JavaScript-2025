@@ -7,12 +7,6 @@
     box-sizing: border-box;
 }
 
-button {
-    width: 50px;
-    margin: 5px;
-    padding: 5px;
-}
-
 .flex {
     display: flex;
 }
@@ -30,23 +24,25 @@ img {
     -webkit-user-drag: none;
 }
 
+p {
+    text-align: center;
+    margin: 5px;
+}
+
 /* ---------------------------- Input Range Button -------------------------- */
-/* https: //codepen.io/tttptd/pen/AYXoyQ */
-
-
 input[type='range'] {
     -webkit-appearance: none !important;
-
-    padding: 0px 15px;
+    padding: 8px 15px;
     margin: 0px 0px;
+    width: 240px;
     background: #DFE0E9;
-    /* height: 30px; */
-    /* border-radius: 2px; */
-    border: none;
-    /* -webkit-box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .5);
-    box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, .5); */
     cursor: pointer;
-    /* width: 15rem; */
+}
+
+@supports (-moz-appearance:none) {
+    input[type='range'] {
+        padding: 20px 15px;
+    }
 }
 
 input[type='range'][disabled] {
@@ -59,23 +55,22 @@ input[type='range'][disabled] {
 /* Thumb Styles */
 input[type='range']::-webkit-slider-thumb {
     -webkit-appearance: none !important;
-    background: url(../images/Untitled6.png);
+    margin-top: 7px;
+    /* formula to properly center the thumb:  margin-top=(track height in pixels / 2) - (thumb height in pixels /2) */
+
+    background: url(../images/thumb.png);
     background-repeat: no-repeat;
     background-size: contain;
     width: 13px;
     height: 26px;
-    margin-top: 4px;
-    /* formula to properly center the thumb:  margin-top=(track height in pixels / 2) - (thumb height in pixels /2) */
 }
 
 /* Track Styles */
 input[type="range"]::-webkit-slider-runnable-track {
-    /* background: #053a5f; */
-    height: 30px;
-    border: none;
-    width: 100%;
     padding: 0 10px;
-    background-image: url(../images/Untitled11.png);
+    height: 40px;
+    border: none;
+    background-image: url(../images/track.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -85,16 +80,22 @@ input[type="range"]::-webkit-slider-runnable-track {
 input[type="range"]::-moz-range-thumb {
     border: none;
     border-radius: 0;
-    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAaCAYAAABsONZfAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAq9JREFUeNqsVMtqFEEUrUd36XRPXk4QUWeSGEJGXejajQju5gP8AgV/RMEPiP8hBONON8KQlbMwJoIIA4kzZl6ZpN9V5blNeogTJQgWXG7VrXNu3Vc3397eZsPh8OFoNHq+urr6wHXdaq/XY5ubm6zRaLBKpcLiOG7v7u5+9Dzvdblc/iAYYw3Ie8iTVqtVXV5eZvV6na2treWazmSn+1Ncg0iv2Omy1jJjDEvTlHU6nVzTmeTMekmk9bMWAmRZxrrdbq6nCLTuEEn+iTQYDM6RKBLCi2k3Wus8rPF4nGs6F4tznutzpOIlWn8J7z+RKBySjY2NyX56OdMG8k7Adrs9cXIhaTr5JEkuJhHon0mYs9+Sp/M5UhiG5EoVBpqEIAgmANxPO41ktVZtLNWWbpJHkoODg5zY7/dzwfQzTP5EdnZ23srWp9aMX/ZrCwsLM6iYs7e3x+jTKIQGl8ZHKRU0m83PW1vvXmAy+GMhxCMYbyDpOewdKoSUsii5cR03TNLkEOSvt+vrb6Rf8hQOjuDccCFSgCP06hg2CBujKH04/gH7d+y/eGX/m5z1fSqGNBhGa4zGRUKhAETEI7zcc5W7j3Mbd23GWU/Oz/gsjGNrrCVCCq8xAAHAR9iPoLtwtY+md4QUhybTgZyTi4hjbBnGDMYIaZAQaQgnPYR6iLx+wsEAzsZcyMRJ5XWTJfuBFBxNtYm1hprkAqwBotGIQA5AikCOXUcYqbyIxVFgETciNBqXqeM4IYAhqhlAHwvBIyFkbFDJyuKslaWSh6ZGTHJp1SVFpIyKQWOHbzVWyk3waHpZCaPmr1oltRUrtsbuz92zpSslfXJ8kiGvFFWjkCLPK6VporPa0qx5+uwu/SDyn4RQ1WuMhAwrK7dMcBIgnQwd4Bqt0MbqAmyL+fslwADoLPoqD85X7AAAAABJRU5ErkJggg==);
+
+    background: url(../images/thumb.png);
+    background-repeat: no-repeat;
+    background-size: contain;
     height: 26px;
     width: 13px;
 }
 
 /* Track Styles */
 input[type="range"]::-moz-range-track {
-    background: #053a5f;
-    height: 4px;
     padding: 0 10px;
+    height: 40px;
+    border: none;
+    background-image: url(../images/track.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -127,8 +128,10 @@ input[type="range"]::-moz-range-track {
     gap: 4px;
 }
 
+/* ------------------------------- Upper Line ------------------------------- */
 .speaker {
-    background-image: url(../images/speaker.svg);
+    background-image: url(../images/speaker.png);
+    background-size: 200px 140px;
     background-repeat: no-repeat;
     background-position: center;
     background-color: #dfe0e9;
@@ -142,12 +145,9 @@ input[type="range"]::-moz-range-track {
 
 .window {
     width: 100%;
+    height: 72px;
     background-color: #dfe0e9;
     border-radius: 4px;
-}
-
-.window > img {
-    width: 50px;
 }
 
 .power {
@@ -162,7 +162,8 @@ input[type="range"]::-moz-range-track {
     border-radius: 4px;
 }
 
-
+/* ------------------------------- Bottom Line ------------------------------ */
+/* left */
 .controls {
     border-radius: 4px;
     grid-row-end: span 2;
@@ -171,7 +172,25 @@ input[type="range"]::-moz-range-track {
     gap: 4px;
 }
 
-.buttons {
+.key-block {
+    width: 80px;
+    height: 80px;
+    background: #d1d7e0;
+    color: #707687;
+    border-radius: 4px;
+    background-image: url(../images/key.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70px;
+}
+
+.green {
+    color: green;
+    font-size: smaller;
+}
+
+/* middle */
+#buttons {
     border-radius: 4px;
     grid-row-end: span 2;
     grid-column-end: span 2;
@@ -181,11 +200,57 @@ input[type="range"]::-moz-range-track {
     grid-template-rows: repeat(4, 1fr);
 }
 
-.volume {
+.button-block {
+    width: 140px;
+    height: 80px;
+    background: #d1d7e0;
+    border-radius: 4px;
+}
+
+#stop,
+.button-square {
+    position: relative;
+    top: -2px;
+    width: 126px;
+    height: 60px;
+    font-size: 1.5em;
+    border-radius: 12px;
+    border: 2px solid darkgray;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.34) inset, 0 2px 0 -1px rgba(0, 0, 0, 0.13), 0 3px 0 -1px rgba(0, 0, 0, 0.08), 0 3px 5px -1px rgba(0, 0, 0, 0.21);
+}
+
+#stop:active,
+.button-square:active {
+    top: -1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.60), 0 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+.button-square {
+    background: linear-gradient(0deg, #c4c4c4 0%, #ffffff 100%);
+    background-color: #e7e7e7;
+    padding: 15px 55px;
+}
+
+#stop {
+    background-color: #db0000;
+    padding: 15px 55px;
+}
+
+#stop span {
+    margin-left: -26px;
+    color: white;
+}
+
+/* right */
+.slider {
     gap: 4px;
     border-radius: 4px;
     grid-row-end: span 2;
+}
 
+.slider > img {
+    width: 75px;
+    margin: 4px;
 }
 
 .knobs {
@@ -195,82 +260,9 @@ input[type="range"]::-moz-range-track {
     padding: 10px 0px;
 }
 
-.range {
+#range {
     justify-content: center;
     background-color: #dfe0e9;
-    padding: 10px;
+    padding: 20px 10px 10px 10px;
     border-radius: 4px;
-}
-
-
-.volume > img {
-    width: 75px;
-    margin: 4px;
-}
-
-.button-block {
-    width: 140px;
-    height: 80px;
-    background: #d1d7e0;
-    border-radius: 4px;
-}
-
-.button-white {
-    width: 110px;
-    height: 40px;
-    background: #e1e1e3;
-    border: 1px solid lightsteelblue;
-    box-shadow: 2px 2px 10px #bec1c5, inset -6px -6px 16px #e8ebf3;
-    border-radius: 50px
-}
-
-.key-block {
-    width: 80px;
-    height: 80px;
-    background: #d1d7e0;
-    border-radius: 4px;
-    background-image: url(../images/Untitled5.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 70px;
-}
-
-/* .key-white {
-    position: relative;
-    width: 44px;
-    height: 44px;
-    text-align: center;
-    background: #d8dbe3;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-sizing: border-box;
-    box-shadow: 6px 6px 16px #9fa6b3, -6px -6px 16px #e8ebf3;
-    border-radius: 100%;
-} */
-
-
-
-/* -------------------------------------------------------------------------- */
-.button-square:active {
-    /* box-shadow: 0 0 #73B9C9; */
-    background-color: #70B4C4;
-    top: -1px;
-    /* border-color: rgba(0, 0, 0, 0.34) rgba(0, 0, 0, 0.21) rgba(0, 0, 0, 0.21); */
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.60), 0 1px rgba(0, 0, 0, 0.05) inset;
-    position: relative;
-}
-
-.button-square {
-    position: relative;
-    top: -2px;
-    /* color: white; */
-    padding: 30px 55px;
-    /* display: inline-block; */
-    border: 2px solid darkgray;
-    /* border-bottom-color: rgba(0, 0, 0, 0.34); */
-    /* text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15); */
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.34) inset, 0 2px 0 -1px rgba(0, 0, 0, 0.13), 0 3px 0 -1px rgba(0, 0, 0, 0.08), 0 3px 5px -1px rgba(0, 0, 0, 0.21);
-    background: linear-gradient(0deg, #c4c4c4 0%, #ffffff 100%);
-    background-color: #d5d5d5;
-    border-radius: 12px;
-    /* box-shadow: 0px 4px 0px #73B9C9; */
 }
