@@ -1,4 +1,11 @@
 /* Add styles here to make the soundboard actually look like a soundboard! */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 button {
     width: 50px;
@@ -6,6 +13,21 @@ button {
     padding: 5px;
 }
 
+.flex {
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+}
+
+/* ---------------------------- Input Range Button -------------------------- */
+/* https: //codepen.io/tttptd/pen/AYXoyQ */
 input[type='range'] {
     -webkit-appearance: none !important;
     background: #ccc;
@@ -22,4 +44,207 @@ input[type='range']::-webkit-slider-thumb {
     height: 26px;
     position: relative;
     top: 4px;
+}
+
+input[type='range'][disabled] {
+    background-color: #ddd;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/* -------------------------------------------------------------------------- */
+
+#drumkit {}
+
+.container {
+    background: linear-gradient(179.56deg, rgba(223, 224, 233, 0.5) 4.52%, rgba(205, 210, 220, 0.5) 96.3%);
+    border: 2px solid #c4c4c2;
+    box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    height: 450px;
+    width: 1000px;
+    margin: 200px auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.dark-background {
+    background-color: #0f0e0f;
+    border-radius: 6px;
+    width: 960px;
+    height: 410px;
+    padding: 4px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 4px;
+}
+
+.speaker {
+    background-image: url(../images/speaker.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #dfe0e9;
+    border-radius: 4px;
+}
+
+.menu {
+    background-color: #dfe0e9;
+    border-radius: 4px;
+    grid-column-end: span 2;
+}
+
+#window {
+    width: 90%;
+}
+
+#window > img {
+    width: 50px;
+}
+
+.knobs {
+    padding: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.knobs > img {
+
+    width: 50px;
+    /* margin: 5px; */
+}
+
+.controls {
+    /* background-color: #dfe0e9; */
+    border-radius: 4px;
+    grid-row-end: span 2;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+}
+
+.buttons {
+    /* background-color: #dfe0e9; */
+    border-radius: 4px;
+    grid-row-end: span 2;
+    grid-column-end: span 2;
+    display: grid;
+    gap: 4px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.volume {
+    background-color: #dfe0e9;
+    border-radius: 4px;
+    grid-row-end: span 2;
+
+}
+
+.volume > img {
+    width: 150px;
+    margin: 4px;
+}
+
+.button-block {
+    width: 130px;
+    height: 60px;
+    background: #d1d7e0;
+    border-radius: 4px;
+}
+
+.button-white {
+    width: 110px;
+    height: 40px;
+    background: #e1e1e3;
+    border: 1px solid lightsteelblue;
+    box-shadow: 2px 2px 10px #bec1c5, inset -6px -6px 16px #e8ebf3;
+    border-radius: 50px
+}
+
+.key-block {
+    width: 60px;
+    height: 60px;
+    background: #d1d7e0;
+    border-radius: 4px
+}
+
+.key-white {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    background: #d8dbe3;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-sizing: border-box;
+    box-shadow: 6px 6px 16px #9fa6b3, -6px -6px 16px #e8ebf3;
+    border-radius: 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+.animate {
+    transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+}
+
+.action-button {
+    position: relative;
+    padding: 10px 40px;
+    margin: 0px 10px 10px 0px;
+    float: left;
+    border-radius: 10px;
+    font-family: 'Pacifico', cursive;
+    font-size: 25px;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.blue {
+    background-color: #3498DB;
+    border-bottom: 5px solid #2980B9;
+    text-shadow: 0px -2px #2980B9;
+}
+
+.action-button:active {
+    transform: translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+    border-bottom: 1px solid;
+}
+
+/* -------------------------------------------------------------------------- */
+.btn-two.cyan {
+    background-color: #d5d5d5;
+}
+
+.rounded {
+    border-radius: 6px;
+}
+
+.btn.cyan {
+    box-shadow: 0px 4px 0px #73B9C9;
+}
+
+.btn.cyan:active {
+    box-shadow: 0 0 #73B9C9;
+    background-color: #70B4C4;
+}
+
+.btn-two {
+    /* color: white; */
+    padding: 20px 40px;
+    /* display: inline-block; */
+    border: 1px solid rgba(0, 0, 0, 0.21);
+    border-bottom-color: rgba(0, 0, 0, 0.34);
+    /* text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15); */
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.34) inset,
+        0 2px 0 -1px rgba(0, 0, 0, 0.13),
+        0 3px 0 -1px rgba(0, 0, 0, 0.08),
+        0 3px 13px -1px rgba(0, 0, 0, 0.21);
+}
+
+.btn-two:active {
+    top: 1px;
+    border-color: rgba(0, 0, 0, 0.34) rgba(0, 0, 0, 0.21) rgba(0, 0, 0, 0.21);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.60), 0 1px rgba(0, 0, 0, 0.05) inset;
+    position: relative;
 }

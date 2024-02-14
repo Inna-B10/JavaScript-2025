@@ -117,17 +117,21 @@ function createButtons() {
 //*4. Call on the function that loops over the sounds and creates the buttons */
 
 createButtons();
-let whatPlayingNow = "";
+
 /* -------------------------- Additional Functions -------------------------- */
 function playSound(id) {
   sounds.map((el) => {
     if (id === el.key) {
       setPause();
-      whatPlayingNow = document.getElementById(id);
-      whatPlayingNow.play();
+      const playingNow = document.getElementById(id);
+      playbackRate.disabled = false;
+      playbackRate.addEventListener("input", () => {
+        playingNow.playbackRate = playbackRate.value;
+        currentPbr.innerText = playbackRate.value;
+      });
+      playingNow.play();
     }
   });
-  return whatPlayingNow;
 }
 
 function setPause() {
@@ -170,6 +174,7 @@ const playbackRate = createNode("input", {
   min: 0.25,
   max: 2,
   step: 0.25,
+  disabled: "",
 });
 playbackRate.value = 1;
 const currentPbr = createNode("span", {
@@ -183,8 +188,3 @@ pbrText.appendChild(currentPbr);
 form.appendChild(playbackRate);
 form.appendChild(pbrText);
 drumkit.appendChild(form);
-
-playbackRate.addEventListener("input", () => {
-  whatPlayingNow.playbackRate = playbackRate.value;
-  currentPbr.innerText = playbackRate.value;
-});
