@@ -5,13 +5,13 @@
 // to use assert {type: "json"} if using a json file
 // examples of how the structure can look is in the data folder
 import { sounds } from "../data/soundsJSexample.js";
-console.log(sounds);
 
 //*1. Catch the html element with id drumkit: */
 
 //const drumkit = document.getElementById("drumkit");
-// I use #buttons in my template
+// I used #buttons in my template
 const buttons = document.getElementById("buttons");
+const output = document.getElementById("output");
 
 //*2. Write a console log for the fetched sounds so you know how the structure is and how you can use it */
 
@@ -114,6 +114,7 @@ document.addEventListener("click", (event) => {
 // button.appendChild(playFile);
 
 //*4. Create a function that loops over the sounds (from the data file you created). Use that function created in 3. to use the logic there to create the buttons. I prefer that you use .forEach or .map */
+
 function createButtons() {
   sounds.forEach((value) => {
     const array = setButton(value.file);
@@ -135,6 +136,15 @@ function playSound(id) {
   sounds.map((el) => {
     if (id === el.key) {
       setPause();
+      //prepear file name to display
+      const splitArr = el.file.split("/");
+      let fileString = splitArr[splitArr.length - 1];
+      const firstLetter = fileString.charAt(0).toUpperCase();
+      fileString = firstLetter + fileString.slice(1);
+      const symbol = /-/g;
+      const file = symbol[Symbol.replace](fileString, " ");
+      output.innerText = file;
+
       const playingNow = document.getElementById(id);
       playbackRate.disabled = false;
       volume.disabled = false;
@@ -161,6 +171,7 @@ function setPause() {
     const resetSpeed = document.getElementById("currentPbr");
     resetSpeed.innerText = 1;
     playbackRate.value = 1;
+    output.innerText = "";
   });
 }
 
@@ -190,7 +201,7 @@ buttons.appendChild(divStop);
 const form = createNode("form", {
   class: "flex column",
 });
-//playbackRate
+/* ------------------------------ PlaybackRate */
 const playbackRate = createNode("input", {
   id: "pbr",
   type: "range",
@@ -212,7 +223,7 @@ pbrText.appendChild(currentPbr);
 form.appendChild(playbackRate);
 form.appendChild(pbrText);
 
-//volume
+/* --------------------------------- Volume */
 const volume = createNode("input", {
   id: "volume",
   type: "range",
@@ -222,7 +233,6 @@ const volume = createNode("input", {
   step: 25,
   disabled: "",
 });
-// volume.value = 50;
 const currentVol = createNode("span", {
   id: "currentVol",
 });

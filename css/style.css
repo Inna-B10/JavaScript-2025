@@ -1,4 +1,8 @@
-/* Add styles here to make the soundboard actually look like a soundboard! */
+@font-face {
+    font-family: "Guru Meditation NBP";
+    src: url(guru-meditation-nbp-font/GuruMeditationNbp-GynZ.ttf) format("truetype");
+}
+
 *,
 *::after,
 *::before {
@@ -100,14 +104,11 @@ input[type="range"]::-moz-range-track {
 
 /* -------------------------------------------------------------------------- */
 
-#drumkit {}
-
-.container {
+#drumkit {
     background: linear-gradient(179.56deg, rgba(223, 224, 233, 0.5) 4.52%, rgba(205, 210, 220, 0.5) 96.3%);
     border: 2px solid #c4c4c2;
     box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.8);
     border-radius: 10px;
-    /* height: 450px; */
     width: 1000px;
     margin: 200px auto;
     padding: 40px 20px 20px;
@@ -118,11 +119,8 @@ input[type="range"]::-moz-range-track {
 .dark-background {
     background-color: #0f0e0f;
     border-radius: 6px;
-    /* width: 960px; */
-    /* height: 410px; */
     padding: 4px;
     display: grid;
-    /* grid-template-columns: repeat(4, 1fr); */
     grid-template-columns: 248px 213px 213px 248px;
     grid-template-rows: repeat(3, 1fr);
     gap: 4px;
@@ -143,6 +141,7 @@ input[type="range"]::-moz-range-track {
     gap: 4px;
 }
 
+/* --------------------------------- Display */
 .window {
     width: 100%;
     height: 72px;
@@ -151,7 +150,35 @@ input[type="range"]::-moz-range-track {
     padding: 6px;
 }
 
+.screen-container {
+    background-color: rgb(144, 154, 166);
+    border-radius: 6px;
+    color: rgb(8, 9, 13);
+    font: 16px / 18.4px "Share Tech Mono", monospace;
+    outline: rgb(8, 9, 13) none 0px;
+}
 
+.screen {
+    height: 60px;
+    background-color: rgb(96, 92, 83);
+    border-radius: 6px;
+    border: 2px solid rgb(117, 134, 150);
+    color: rgb(8, 9, 13);
+    font: 16px / 18.4px "Share Tech Mono", monospace;
+    user-select: none;
+    /* background-color: #7ce4f7; */
+}
+
+#output {
+    padding: 5px;
+    inset: 10px;
+    font-size: 1.5em;
+    height: 100%;
+    font-family: "Guru Meditation NBP", monospace;
+    font-weight: bold;
+}
+
+/* ---------------------------------------------- */
 
 .power {
     gap: 4px;
@@ -166,7 +193,7 @@ input[type="range"]::-moz-range-track {
 }
 
 /* ------------------------------- Bottom Line ------------------------------ */
-/* left */
+/* ---------------------------------- Left */
 .controls {
     border-radius: 4px;
     grid-row-end: span 2;
@@ -192,7 +219,7 @@ input[type="range"]::-moz-range-track {
     font-size: smaller;
 }
 
-/* middle */
+/* --------------------------------- Middle */
 #buttons {
     border-radius: 4px;
     grid-row-end: span 2;
@@ -244,7 +271,7 @@ input[type="range"]::-moz-range-track {
     color: white;
 }
 
-/* right */
+/* ---------------------------------- Right */
 .slider {
     gap: 4px;
     border-radius: 4px;
@@ -268,66 +295,4 @@ input[type="range"]::-moz-range-track {
     background-color: #dfe0e9;
     padding: 20px 10px 10px 10px;
     border-radius: 4px;
-}
-
-/* -------------------------------------------------------------------------- */
-
-.screen-container {
-    background-color: rgb(144, 154, 166);
-    /* height: 52.5938px; */
-    /* width: 188.672px; */
-    border-radius: 6px;
-    /* padding: 4.95312px; */
-    color: rgb(8, 9, 13);
-    font: 16px / 18.4px "Share Tech Mono", monospace;
-    outline: rgb(8, 9, 13) none 0px;
-}
-
-
-.screen {
-    height: 60px;
-    /* background-color: #7ce4f7; */
-    background-color: rgb(96, 92, 83);
-    border-radius: 6px;
-    border: 2px solid rgb(117, 134, 150);
-    color: rgb(8, 9, 13);
-    font: 16px / 18.4px "Share Tech Mono", monospace;
-    user-select: none;
-}
-
-#output {
-    border: 0 none rgb(8, 9, 13);
-    border-block-end-color: rgb(8, 9, 13);
-    border-block-start-color: rgb(8, 9, 13);
-    border-bottom-color: rgb(8, 9, 13);
-    border-inline-end-color: rgb(8, 9, 13);
-    border-inline-start-color: rgb(8, 9, 13);
-    border-left-color: rgb(8, 9, 13);
-    border-right-color: rgb(8, 9, 13);
-    border-top-color: rgb(8, 9, 13);
-    caret-color: rgb(8, 9, 13);
-    color: rgb(8, 9, 13);
-    column-rule-color: rgb(8, 9, 13);
-    cursor: default;
-    font: 21.945px / 25.2367px "Share Tech Mono", monospace;
-    margin: 0;
-    outline: rgb(8, 9, 13) none 0;
-    padding: 3.6875px;
-    text-align: right;
-    text-decoration: none solid rgb(8, 9, 13);
-    text-decoration-color: rgb(8, 9, 13);
-    text-emphasis-color: rgb(8, 9, 13);
-    text-size-adjust: 100%;
-    transform-origin: 92.3359px 15.8359px;
-    user-select: none;
-    width: 177.297px;
-    -webkit-locale: "en";
-    -webkit-text-fill-color: rgb(8, 9, 13);
-    -webkit-text-stroke-color: rgb(8, 9, 13);
-    -webkit-border-after: 0 none rgb(8, 9, 13);
-    -webkit-border-before: 0 none rgb(8, 9, 13);
-    -webkit-border-end: 0 none rgb(8, 9, 13);
-    -webkit-border-start: 0 none rgb(8, 9, 13);
-    -webkit-text-emphasis: none rgb(8, 9, 13);
-    -webkit-transform-origin: 92.3359px 15.8359px;
 }
