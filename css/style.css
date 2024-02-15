@@ -121,7 +121,7 @@ input[type="range"]::-moz-range-track {
     border-radius: 6px;
     padding: 4px;
     display: grid;
-    grid-template-columns: 248px 213px 213px 248px;
+    grid-template-columns: 248px 212px 212px 248px;
     grid-template-rows: repeat(3, 1fr);
     gap: 4px;
 }
