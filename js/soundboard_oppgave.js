@@ -101,18 +101,7 @@ document.addEventListener("keypress", (KeyboardEvent) => {
 //3.5. OPTIONAL. Create an eventlistener for clicking. Also create a logic for preventing more sounds to be played at the same time
 
 document.addEventListener("click", (event) => {
-  console.log(event.target.id);
-  if (
-    event.target.id !== "stop" &&
-    event.target.id !== "pbr" &&
-    event.target.id !== "range" &&
-    event.target.id !== "currentPbr" &&
-    event.target.id !== "drumkit" &&
-    event.target.id !== "volume" &&
-    event.target.id !== "buttons" &&
-    event.target.id !== null &&
-    event.target.id !== ""
-  ) {
+  if (event.target.classList.contains("button-square")) {
     const buttonId = event.target.lastElementChild.id;
     playSound(buttonId);
   }
@@ -147,6 +136,12 @@ function playSound(id) {
       setPause();
       const playingNow = document.getElementById(id);
       playbackRate.disabled = false;
+      volume.disabled = false;
+      volume.addEventListener("input", () => {
+        playingNow.volume = volume.value / 100;
+        currentVol.innerText = volume.value;
+      });
+
       playbackRate.addEventListener("input", () => {
         playingNow.playbackRate = playbackRate.value;
         currentPbr.innerText = playbackRate.value;
@@ -220,12 +215,13 @@ form.appendChild(pbrText);
 const volume = createNode("input", {
   id: "volume",
   type: "range",
-  value: 1,
+  value: 50,
   min: 0,
-  max: 4,
-  step: 1,
+  max: 100,
+  step: 25,
+  disabled: "",
 });
-volume.value = 1;
+// volume.value = 50;
 const currentVol = createNode("span", {
   id: "currentVol",
 });
