@@ -10,9 +10,13 @@
   </head>
   <body>
     <div id="drumkit"></div>
+    <!-- ----------------------------------------------------------------------- -->
+
+    <!-- ----------------------------------------------------------------------- -->
 
     <div class="container flex">
       <div class="dark-background">
+        <!-- ----------------------------- Upper Line ------------------------------ -->
         <div class="speaker"></div>
         <div class="menu flex column">
           <div class="power flex center">
@@ -25,11 +29,21 @@
               <img src="./images/power.png" alt="" />
             </div>
           </div>
+          <!-- ------------------------------- Screen -------------------------------- -->
           <div class="window">
-            <div class="screen"></div>
+            <div class="screen-container">
+              <div
+                class="screen"
+                style="background: rgb(96, 92, 83); cursor: default">
+                <div id="output"></div>
+                <div id="log"></div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="speaker"></div>
+        <!-- ----------------------------- Lower Line ------------------------------ -->
+        <!-- Left part with round keys -->
         <div class="controls">
           <div class="key-block flex center">
             <img
@@ -96,7 +110,9 @@
             <span class="green">M2</span>
           </div>
         </div>
+        <!-- ---------------------- Square Buttons With Audio ---------------------- -->
         <div id="buttons"></div>
+        <!-- ------------------------ Right Part With Knobs and sliders ------------ -->
         <div class="slider flex column">
           <div class="knobs flex">
             <img src="./images/knob1.png" alt="" />

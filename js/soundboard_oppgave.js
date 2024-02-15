@@ -5,6 +5,7 @@
 // to use assert {type: "json"} if using a json file
 // examples of how the structure can look is in the data folder
 import { sounds } from "../data/soundsJSexample.js";
+console.log(sounds);
 
 //*1. Catch the html element with id drumkit: */
 
