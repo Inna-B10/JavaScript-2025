@@ -285,6 +285,7 @@ input[type="range"]::-moz-range-track {
 }
 
 .knobs {
+    margin-bottom: 1px;
     background-color: #dfe0e9;
     justify-content: space-around;
     border-radius: 4px;
