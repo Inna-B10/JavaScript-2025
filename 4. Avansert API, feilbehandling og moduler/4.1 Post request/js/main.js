@@ -2,14 +2,8 @@
 import { fetchedData, getData2 } from "./utils.js"
 import getData from "./utils.js";
 
-
-
-
-
-
 async function updateData() {
     await getData2("https://jsonplaceholder.typicode.com/todos/2")
-
 }
 
 updateData()
@@ -17,8 +11,6 @@ updateData()
 setTimeout(() => {
     console.log(fetchedData ? fetchedData : "data not found")
 }, 2000)
-
-
 
 export let someData = null;
 
