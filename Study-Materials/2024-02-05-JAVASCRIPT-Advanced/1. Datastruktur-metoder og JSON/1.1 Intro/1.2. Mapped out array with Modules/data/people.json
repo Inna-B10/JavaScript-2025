@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Victor Wûlf",
+        "age": 32,
+        "occupation": "Hardwarewolf Engineer",
+        "image": "public/images/dreamwolf.webp"
+    },
+    {
+        "id": 2,
+        "name": "Kitman the hitman",
+        "age": 28,
+        "occupation": "Security Manager",
+        "image": "public/images/kitman.webp"
+      },
+      {
+        "id": 3,
+        "name": "Pen Gui",
+        "age": 35,
+        "occupation": "Sosial relations",
+        "image": "public/images/penguin_in_the_desert.webp"
+      },
+      {
+        "id": 4,
+        "name": "Paulo Boermann",
+        "age": 35,
+        "occupation": "CEO",
+        "image": "public/images/polar_bear_sherpa.webp"
+      },
+      {
+        "id": 5,
+        "name": "Ralph Pronsky",
+        "age": 19,
+        "occupation": "Intern",
+        "image": "public/images/skating_red_panda.webp"
+      },
+      {
+        "id": 6,
+        "name": "Sputnik Shallow",
+        "age": 35,
+        "occupation": "Tech lead",
+        "image": "public/images/steampunk_sparrow.webp"
+      }
+]

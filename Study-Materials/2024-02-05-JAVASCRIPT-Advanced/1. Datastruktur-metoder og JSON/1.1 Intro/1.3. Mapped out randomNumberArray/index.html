@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script defer src="./js/randomNumbers.js"></script> -->
+    <script defer src="./js/randomNumbersRefractered.js"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <section>
+        <div>
+            <h2>Numbers from a random number array:</h2>
+            <div>
+                <button onclick="displayAllRandomNumbers()">Generate random numbers</button>
+                <button onclick="flexibleDisplayAllNumbers()">Generate random numbers (with flexible functions)</button>
+            </div>
+        </div>
+        <div class="numbers-container">
+            <div class="standard-box_style">
+                <p>Original Array:</p>
+                <ul id="original-randomArray"></ul>
+            </div>
+            <div class="standard-box_style">
+                <p>Squared Values:</p>
+                <ul id="squared-randomValues"></ul>
+            </div>
+            <div class="standard-box_style">
+                <p>Doubled Values:</p>
+                <ul id="doubled-randomValues"></ul>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
