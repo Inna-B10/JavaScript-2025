@@ -1,0 +1,14 @@
+{
+  "name": "oppgave-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "typescript": "4.4.4",
+    "vitest": "^1.2.0"
+  },
+  "keywords": []
+}
