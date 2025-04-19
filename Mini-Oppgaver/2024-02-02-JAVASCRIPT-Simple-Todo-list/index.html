@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="styles/overrides.css" />
+    <link rel="stylesheet" href="styles/palettes.css" />
+    <link rel="stylesheet" href="styles/classes.css" />
+
+    <script type="module" src="main.js"></script>
+
+    <title>Simple Todo List</title>
+  </head>
+  <body class="min-h-screen flex column">
+    <header class="bg-primary text-secondary">
+      <h1 class="text-center">Todo List</h1>
+    </header>
+
+    <main class="grow">
+      <div class="flex user-input">
+        <input id="text-input" type="text" autofocus />
+        <button id="add-task">Add</button>
+      </div>
+      <ul id="todo-list"></ul>
+    </main>
+
+    <footer class="bg-primary text-secondary">
+      <h2 class="text-center">Let's do it 😉!</h2>
+    </footer>
+  </body>
+</html>
